@@ -100,8 +100,35 @@ bool Client::Initialize()
 
 void Client::Start()
 {
-	std::cout << "Please enter your name: ";
-	std::getline(std::cin, this->name);
+	std::string action = "";
+	while (action != "1" || action != "2") // Keep asking until we get a valid response
+	{
+		std::cout << "What would you like to do?:" << std::endl;
+		std::cout << "1) Login" << std::endl;
+		std::cout << "2) Sign Up\n" << std::endl;
+		std::getline(std::cin, action);
+	}
+
+	std::string username;
+	std::cout << "Enter your username: ";
+	std::getline(std::cin, username);
+
+	std::string password;
+	std::cout << "Enter your password: ";
+	std::getline(std::cin, password);
+
+	if (action == "1")
+	{
+		// TODO: Send 'AuthenticateWeb' proto packet to server so that server can forward it to the auth server
+		// TODO: Wait until we get a reply (either AuthenticateWebSuccess or AuthenticateWebFailure)
+	}
+	else if (action == "2")
+	{
+		// TODO: Send 'CreateAccountWeb' proto packet to server so that server can forward it to the auth server
+		// TODO: Wait until we get a reply (either CreateAccountWebSuccess or CreateAccountWebFailure)
+	}
+
+	this->name = username;
 
 	std::cout << "Please enter the room you'd like to enter: ";
 	std::getline(std::cin, this->currentRoom);

@@ -7,8 +7,10 @@ namespace netutils
 
 	// 0 == Send Message
 	// 1 == Receive Message
-	// 2 == join Room 
-	// 3 = leave Room
+	// 2 == Join Room 
+	// 3 = Leave Room
+	// 4 == Login
+	// 5 == 
 	struct PacketHeader
 	{
 		int packetType;
