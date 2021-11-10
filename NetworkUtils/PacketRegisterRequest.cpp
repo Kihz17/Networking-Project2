@@ -10,6 +10,12 @@ namespace netutils
 
 	}
 
+	PacketRegisterRequest::PacketRegisterRequest(Buffer& buffer)
+		: IPacket(5)
+	{
+		Deserialize(buffer);
+	}
+
 	void PacketRegisterRequest::Serialize(Buffer& buffer)
 	{
 		auth::CreateAccountWeb registerRequestProto;

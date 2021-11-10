@@ -9,6 +9,7 @@ namespace netutils
 	{
 	public:
 		PacketRegisterResult(long requestId, long userId, auth::CreateAccountWebResult_CreateAccountResult result);
+		PacketRegisterResult(Buffer& buffer);
 		virtual ~PacketRegisterResult() = default;
 
 		virtual void Serialize(Buffer& buffer);

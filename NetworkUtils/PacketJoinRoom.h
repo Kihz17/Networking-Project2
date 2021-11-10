@@ -8,6 +8,7 @@ namespace netutils
 	{
 	public:
 		PacketJoinRoom(const std::string& roomName, const std::string& name);
+		PacketJoinRoom(Buffer& buffer);
 		virtual ~PacketJoinRoom() = default;
 
 		virtual void Serialize(Buffer & buffer);

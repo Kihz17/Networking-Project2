@@ -8,6 +8,12 @@ namespace netutils
 
 	}
 
+	PacketRegisterResult::PacketRegisterResult(Buffer& buffer)
+		: IPacket(7)
+	{
+		Deserialize(buffer);
+	}
+
 	void PacketRegisterResult::Serialize(Buffer& buffer)
 	{
 		auth::CreateAccountWebResult createAccountResultProto;

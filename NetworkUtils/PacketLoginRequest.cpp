@@ -10,6 +10,12 @@ namespace netutils
 
 	}
 
+	PacketLoginRequest::PacketLoginRequest(Buffer& buffer)
+		: IPacket(4)
+	{
+		Deserialize(buffer);
+	}
+
 	void PacketLoginRequest::Serialize(Buffer& buffer)
 	{
 		auth::AuthenticateWeb loginRequestProto;

@@ -8,6 +8,7 @@ namespace netutils
 	{
 	public:
 		PacketReceiveMessage(const std::string& senderName, const std::string& message);
+		PacketReceiveMessage(Buffer& buffer);
 		virtual ~PacketReceiveMessage() = default;
 
 		virtual void Serialize(Buffer& buffer);

@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\PacketHandlers">
+      <UniqueIdentifier>{86330706-9ac7-4ae8-9060-599b6df1d9ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PacketHandlers">
+      <UniqueIdentifier>{58bf9b5f-2c94-4178-8f67-30928f3360e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,14 +33,14 @@
     <ClCompile Include="PacketManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PacketSendMessageHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PacketJoinRoomHandler.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\PacketHandlers</Filter>
     </ClCompile>
     <ClCompile Include="PacketLeaveRoomHandler.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\PacketHandlers</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketSendMessageHandler.cpp">
+      <Filter>Source Files\PacketHandlers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -48,16 +54,16 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IPacketHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PacketSendMessageHandler.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\PacketHandlers</Filter>
     </ClInclude>
     <ClInclude Include="PacketJoinRoomHandler.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\PacketHandlers</Filter>
     </ClInclude>
     <ClInclude Include="PacketLeaveRoomHandler.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\PacketHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketSendMessageHandler.h">
+      <Filter>Header Files\PacketHandlers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

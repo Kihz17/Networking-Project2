@@ -10,6 +10,7 @@ namespace netutils
 	{
 	public:
 		PacketLoginResult(long requestId, long userId, auth::AuthenticateWebResult_AuthenticateResult result, const std::string& creationDate);
+		PacketLoginResult(Buffer& buffer);
 		virtual ~PacketLoginResult() = default;
 
 		virtual void Serialize(Buffer& buffer);

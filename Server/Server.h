@@ -12,7 +12,8 @@
 #include <map>
 
 #include "Client.h"
-#include "Packets.h"
+#include <PacketJoinRoom.h>
+#include <PacketLeaveRoom.h>
 
 class Server
 {
@@ -30,9 +31,9 @@ public:
 
 	void BroadcastMessageExcludeClient(Client* exclude, char* dataToSend, int dataLength);
 
-	void JoinRoom(Client* name, std::string roomname, netutils::PacketJoinRoom& packet);
+	void JoinRoom(Client* name, netutils::PacketJoinRoom& packet);
 
-	void LeaveRoom(Client* name, std::string roomname, netutils::PacketLeaveRoom& packet);
+	void LeaveRoom(Client* name, netutils::PacketLeaveRoom& packet);
 
 	void BroadcastToRoom(std::string roomName, char* dataToSend, int dataLength);
 

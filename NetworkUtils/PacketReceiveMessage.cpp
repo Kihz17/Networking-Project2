@@ -8,6 +8,13 @@ namespace netutils
 
 	}
 
+	PacketReceiveMessage::PacketReceiveMessage(Buffer& buffer)
+		: IPacket(1)
+	{
+		Deserialize(buffer);
+	}
+
+
 	void PacketReceiveMessage::Serialize(Buffer& buffer)
 	{
 		IPacket::Serialize(buffer);

@@ -20,10 +20,26 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Buffer.h" />
-    <ClInclude Include="Packets.h" />
+    <ClInclude Include="PacketJoinRoom.h" />
+    <ClInclude Include="Packet.h" />
+    <ClInclude Include="PacketLeaveRoom.h" />
+    <ClInclude Include="PacketLoginRequest.h" />
+    <ClInclude Include="PacketLoginResult.h" />
+    <ClInclude Include="PacketReceiveMessage.h" />
+    <ClInclude Include="PacketRegisterRequest.h" />
+    <ClInclude Include="PacketRegisterResult.h" />
+    <ClInclude Include="PacketSendMessage.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Buffer.cpp" />
+    <ClCompile Include="PacketJoinRoom.cpp" />
+    <ClCompile Include="PacketLeaveRoom.cpp" />
+    <ClCompile Include="PacketLoginRequest.cpp" />
+    <ClCompile Include="PacketLoginResult.cpp" />
+    <ClCompile Include="PacketReceiveMessage.cpp" />
+    <ClCompile Include="PacketRegisterRequest.cpp" />
+    <ClCompile Include="PacketRegisterResult.cpp" />
+    <ClCompile Include="PacketSendMessage.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -85,9 +101,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)Extern\include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(SolutionDir)Extern\include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -8,6 +8,12 @@ namespace netutils
 
 	}
 
+	PacketLeaveRoom::PacketLeaveRoom(Buffer& buffer)
+		: IPacket(3)
+	{
+		Deserialize(buffer);
+	}
+
 	void PacketLeaveRoom::Serialize(Buffer& buffer)
 	{
 		IPacket::Serialize(buffer);

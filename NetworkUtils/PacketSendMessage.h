@@ -8,6 +8,7 @@ namespace netutils
 	{
 	public:
 		PacketSendMessage(const std::string& message);
+		PacketSendMessage(Buffer& buffer);
 		virtual ~PacketSendMessage() = default;
 
 		virtual void Serialize(Buffer& buffer);

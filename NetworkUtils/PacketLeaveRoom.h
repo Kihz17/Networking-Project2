@@ -8,6 +8,7 @@ namespace netutils
 	{
 	public:
 		PacketLeaveRoom(const std::string& roomName, const std::string& name);
+		PacketLeaveRoom(Buffer& buffer);
 		virtual ~PacketLeaveRoom() = default;
 
 		virtual void Serialize(Buffer& buffer);

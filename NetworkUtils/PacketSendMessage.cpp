@@ -8,6 +8,12 @@ namespace netutils
 
 	}
 
+	PacketSendMessage::PacketSendMessage(Buffer& buffer)
+		: IPacket(0)
+	{
+		Deserialize(buffer);
+	}
+
 	void PacketSendMessage::Serialize(Buffer& buffer)
 	{
 		IPacket::Serialize(buffer);

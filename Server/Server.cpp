@@ -1,5 +1,4 @@
 #include "Server.h"
-#include "Packets.h"
 #include "PacketManager.h"
 
 #include <iostream>
@@ -301,40 +300,32 @@ void Server::BroadcastToRoomExcludeClient(std::string roomName, Client* exclude,
 
 
 //std::map<std::string, std::vector<Client*> > rooms;
-void Server::JoinRoom(Client* name, std::string roomname, netutils::PacketJoinRoom& packet) 
+void Server::JoinRoom(Client* name,  netutils::PacketJoinRoom& packet) 
 {
+    std::string roomName = packet.roomName;
     name->name = packet.name;
     std::string currentRoom = FindClientRoom(name);
     if (currentRoom != "")
     {
-        netutils::PacketLeaveRoom leavePacket;
-        leavePacket.header.packetType = 3;
-        leavePacket.roomNameLength = currentRoom.size();
-        leavePacket.roomName = currentRoom;
-        leavePacket.namelength = name->name.size();
-        leavePacket.name = name->name;
-        
-        LeaveRoom(name, currentRoom, leavePacket);
+        netutils::PacketLeaveRoom leavePacket(currentRoom, name->name);
+        LeaveRoom(name, leavePacket);
     }
 
-    rooms[roomname].push_back(name);
-    this->clientToRoomMap.insert(std::make_pair(name, roomname));
-    std::cout << name->name << " has joined room " << roomname << std::endl;
+    rooms[roomName].push_back(name);
+    this->clientToRoomMap.insert(std::make_pair(name, roomName));
+    std::cout << name->name << " has joined room " << roomName << std::endl;
 
+    // Pack the packet up again to be sent
     netutils::Buffer buffer(packet.GetSize());
+    packet.Serialize(buffer);
 
-    buffer.WriteInt(packet.header.packetType);
-    buffer.WriteInt(packet.roomNameLength);
-    buffer.WriteString(packet.roomName);
-    buffer.WriteInt(packet.nameLength);
-    buffer.WriteString(packet.name);
-
-    BroadcastToRoom(roomname, buffer.data, buffer.Length());
+    BroadcastToRoom(roomName, buffer.data, buffer.Length());
 }
 
-void Server::LeaveRoom(Client* name, std::string roomname, netutils::PacketLeaveRoom& packet)
+void Server::LeaveRoom(Client* name, netutils::PacketLeaveRoom& packet)
 {
-    std::map<std::string, std::vector<Client*>>::iterator it = this->rooms.find(roomname);
+    std::string roomName = packet.roomName;
+    std::map<std::string, std::vector<Client*>>::iterator it = this->rooms.find(roomName);
 
     if (it != rooms.end()) 
     {
@@ -347,19 +338,14 @@ void Server::LeaveRoom(Client* name, std::string roomname, netutils::PacketLeave
     }
 
     this->clientToRoomMap.erase(name);
-    std::cout << name->name << " has left room " << roomname << std::endl;
+    std::cout << name->name << " has left room " << roomName << std::endl;
 
-    // creating a buffer to broadcast a msg 
+    // Resent data back to clients
     netutils::Buffer buffer(packet.GetSize());
-
-    buffer.WriteInt(packet.header.packetType);
-    buffer.WriteInt(packet.roomNameLength);
-    buffer.WriteString(packet.roomName);
-    buffer.WriteInt(packet.namelength);
-    buffer.WriteString(packet.name);
+    packet.Serialize(buffer);
 
     SendToClient(name, buffer.data, buffer.Length());
-    BroadcastToRoom(roomname, buffer.data, buffer.Length());
+    BroadcastToRoom(roomName, buffer.data, buffer.Length());
 }
 
 std::string Server::FindClientRoom(Client* client)

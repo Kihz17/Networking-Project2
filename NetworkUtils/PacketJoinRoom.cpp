@@ -8,6 +8,12 @@ namespace netutils
 
 	}
 
+	PacketJoinRoom::PacketJoinRoom(Buffer& buffer)
+		: IPacket(2)
+	{
+		Deserialize(buffer);
+	}
+
 	void PacketJoinRoom::Serialize(Buffer& buffer)
 	{
 		IPacket::Serialize(buffer);

@@ -8,6 +8,7 @@ namespace netutils
 	{
 	public:
 		PacketLoginRequest(long requestId, const std::string& email, const std::string& password);
+		PacketLoginRequest(Buffer& buffer);
 		virtual ~PacketLoginRequest() = default;
 
 		virtual void Serialize(Buffer& buffer);

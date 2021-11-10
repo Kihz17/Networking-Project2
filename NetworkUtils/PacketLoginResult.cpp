@@ -3,9 +3,15 @@
 namespace netutils
 {
 	PacketLoginResult::PacketLoginResult(long requestId, long userId, auth::AuthenticateWebResult_AuthenticateResult result, const std::string& creationDate)
-		: IPacket(5), requestId(requestId), userId(userId), result(result), creationDate(creationDate)
+		: IPacket(6), requestId(requestId), userId(userId), result(result), creationDate(creationDate)
 	{
 
+	}
+
+	PacketLoginResult::PacketLoginResult(Buffer& buffer)
+		: IPacket(6)
+	{
+		Deserialize(buffer);
 	}
 
 	void PacketLoginResult::Serialize(Buffer& buffer)
