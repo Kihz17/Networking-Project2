@@ -47,7 +47,7 @@ struct TableStruct_Auth_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[6]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -58,82 +58,76 @@ namespace auth {
 class AuthenticateWeb;
 class AuthenticateWebDefaultTypeInternal;
 extern AuthenticateWebDefaultTypeInternal _AuthenticateWeb_default_instance_;
-class AuthenticateWebFailure;
-class AuthenticateWebFailureDefaultTypeInternal;
-extern AuthenticateWebFailureDefaultTypeInternal _AuthenticateWebFailure_default_instance_;
-class AuthenticateWebSuccess;
-class AuthenticateWebSuccessDefaultTypeInternal;
-extern AuthenticateWebSuccessDefaultTypeInternal _AuthenticateWebSuccess_default_instance_;
+class AuthenticateWebResult;
+class AuthenticateWebResultDefaultTypeInternal;
+extern AuthenticateWebResultDefaultTypeInternal _AuthenticateWebResult_default_instance_;
 class CreateAccountWeb;
 class CreateAccountWebDefaultTypeInternal;
 extern CreateAccountWebDefaultTypeInternal _CreateAccountWeb_default_instance_;
-class CreateAccountWebFaliure;
-class CreateAccountWebFaliureDefaultTypeInternal;
-extern CreateAccountWebFaliureDefaultTypeInternal _CreateAccountWebFaliure_default_instance_;
-class CreateAccountWebSuccess;
-class CreateAccountWebSuccessDefaultTypeInternal;
-extern CreateAccountWebSuccessDefaultTypeInternal _CreateAccountWebSuccess_default_instance_;
+class CreateAccountWebResult;
+class CreateAccountWebResultDefaultTypeInternal;
+extern CreateAccountWebResultDefaultTypeInternal _CreateAccountWebResult_default_instance_;
 }  // namespace auth
 PROTOBUF_NAMESPACE_OPEN
 template<> ::auth::AuthenticateWeb* Arena::CreateMaybeMessage<::auth::AuthenticateWeb>(Arena*);
-template<> ::auth::AuthenticateWebFailure* Arena::CreateMaybeMessage<::auth::AuthenticateWebFailure>(Arena*);
-template<> ::auth::AuthenticateWebSuccess* Arena::CreateMaybeMessage<::auth::AuthenticateWebSuccess>(Arena*);
+template<> ::auth::AuthenticateWebResult* Arena::CreateMaybeMessage<::auth::AuthenticateWebResult>(Arena*);
 template<> ::auth::CreateAccountWeb* Arena::CreateMaybeMessage<::auth::CreateAccountWeb>(Arena*);
-template<> ::auth::CreateAccountWebFaliure* Arena::CreateMaybeMessage<::auth::CreateAccountWebFaliure>(Arena*);
-template<> ::auth::CreateAccountWebSuccess* Arena::CreateMaybeMessage<::auth::CreateAccountWebSuccess>(Arena*);
+template<> ::auth::CreateAccountWebResult* Arena::CreateMaybeMessage<::auth::CreateAccountWebResult>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace auth {
 
-enum CreateAccountWebFaliure_AccountFailureReason : int {
-  CreateAccountWebFaliure_AccountFailureReason_ACCOUNT_ALREADY_EXISTS = 0,
-  CreateAccountWebFaliure_AccountFailureReason_INVALID_PASSWORD = 1,
-  CreateAccountWebFaliure_AccountFailureReason_INTERNAL_SERVER_ERROR = 2,
-  CreateAccountWebFaliure_AccountFailureReason_CreateAccountWebFaliure_AccountFailureReason_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
-  CreateAccountWebFaliure_AccountFailureReason_CreateAccountWebFaliure_AccountFailureReason_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+enum CreateAccountWebResult_CreateAccountResult : int {
+  CreateAccountWebResult_CreateAccountResult_SUCCESS = 0,
+  CreateAccountWebResult_CreateAccountResult_ACCOUNT_ALREADY_EXISTS = 1,
+  CreateAccountWebResult_CreateAccountResult_INVALID_PASSWORD = 2,
+  CreateAccountWebResult_CreateAccountResult_INTERNAL_SERVER_ERROR = 3,
+  CreateAccountWebResult_CreateAccountResult_CreateAccountWebResult_CreateAccountResult_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  CreateAccountWebResult_CreateAccountResult_CreateAccountWebResult_CreateAccountResult_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
-bool CreateAccountWebFaliure_AccountFailureReason_IsValid(int value);
-constexpr CreateAccountWebFaliure_AccountFailureReason CreateAccountWebFaliure_AccountFailureReason_AccountFailureReason_MIN = CreateAccountWebFaliure_AccountFailureReason_ACCOUNT_ALREADY_EXISTS;
-constexpr CreateAccountWebFaliure_AccountFailureReason CreateAccountWebFaliure_AccountFailureReason_AccountFailureReason_MAX = CreateAccountWebFaliure_AccountFailureReason_INTERNAL_SERVER_ERROR;
-constexpr int CreateAccountWebFaliure_AccountFailureReason_AccountFailureReason_ARRAYSIZE = CreateAccountWebFaliure_AccountFailureReason_AccountFailureReason_MAX + 1;
+bool CreateAccountWebResult_CreateAccountResult_IsValid(int value);
+constexpr CreateAccountWebResult_CreateAccountResult CreateAccountWebResult_CreateAccountResult_CreateAccountResult_MIN = CreateAccountWebResult_CreateAccountResult_SUCCESS;
+constexpr CreateAccountWebResult_CreateAccountResult CreateAccountWebResult_CreateAccountResult_CreateAccountResult_MAX = CreateAccountWebResult_CreateAccountResult_INTERNAL_SERVER_ERROR;
+constexpr int CreateAccountWebResult_CreateAccountResult_CreateAccountResult_ARRAYSIZE = CreateAccountWebResult_CreateAccountResult_CreateAccountResult_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CreateAccountWebFaliure_AccountFailureReason_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CreateAccountWebResult_CreateAccountResult_descriptor();
 template<typename T>
-inline const std::string& CreateAccountWebFaliure_AccountFailureReason_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, CreateAccountWebFaliure_AccountFailureReason>::value ||
+inline const std::string& CreateAccountWebResult_CreateAccountResult_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CreateAccountWebResult_CreateAccountResult>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function CreateAccountWebFaliure_AccountFailureReason_Name.");
+    "Incorrect type passed to function CreateAccountWebResult_CreateAccountResult_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    CreateAccountWebFaliure_AccountFailureReason_descriptor(), enum_t_value);
+    CreateAccountWebResult_CreateAccountResult_descriptor(), enum_t_value);
 }
-inline bool CreateAccountWebFaliure_AccountFailureReason_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CreateAccountWebFaliure_AccountFailureReason* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CreateAccountWebFaliure_AccountFailureReason>(
-    CreateAccountWebFaliure_AccountFailureReason_descriptor(), name, value);
+inline bool CreateAccountWebResult_CreateAccountResult_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CreateAccountWebResult_CreateAccountResult* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CreateAccountWebResult_CreateAccountResult>(
+    CreateAccountWebResult_CreateAccountResult_descriptor(), name, value);
 }
-enum AuthenticateWebFailure_AuthenticateFailureReason : int {
-  AuthenticateWebFailure_AuthenticateFailureReason_INVALID_CREDENTIALS = 0,
-  AuthenticateWebFailure_AuthenticateFailureReason_INTERNALL_SERVER_ERROR = 1,
-  AuthenticateWebFailure_AuthenticateFailureReason_AuthenticateWebFailure_AuthenticateFailureReason_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
-  AuthenticateWebFailure_AuthenticateFailureReason_AuthenticateWebFailure_AuthenticateFailureReason_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+enum AuthenticateWebResult_AuthenticateResult : int {
+  AuthenticateWebResult_AuthenticateResult_SUCCESS = 0,
+  AuthenticateWebResult_AuthenticateResult_INVALID_CREDENTIALS = 1,
+  AuthenticateWebResult_AuthenticateResult_INTERNAL_SERVER_ERROR = 2,
+  AuthenticateWebResult_AuthenticateResult_AuthenticateWebResult_AuthenticateResult_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  AuthenticateWebResult_AuthenticateResult_AuthenticateWebResult_AuthenticateResult_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
-bool AuthenticateWebFailure_AuthenticateFailureReason_IsValid(int value);
-constexpr AuthenticateWebFailure_AuthenticateFailureReason AuthenticateWebFailure_AuthenticateFailureReason_AuthenticateFailureReason_MIN = AuthenticateWebFailure_AuthenticateFailureReason_INVALID_CREDENTIALS;
-constexpr AuthenticateWebFailure_AuthenticateFailureReason AuthenticateWebFailure_AuthenticateFailureReason_AuthenticateFailureReason_MAX = AuthenticateWebFailure_AuthenticateFailureReason_INTERNALL_SERVER_ERROR;
-constexpr int AuthenticateWebFailure_AuthenticateFailureReason_AuthenticateFailureReason_ARRAYSIZE = AuthenticateWebFailure_AuthenticateFailureReason_AuthenticateFailureReason_MAX + 1;
+bool AuthenticateWebResult_AuthenticateResult_IsValid(int value);
+constexpr AuthenticateWebResult_AuthenticateResult AuthenticateWebResult_AuthenticateResult_AuthenticateResult_MIN = AuthenticateWebResult_AuthenticateResult_SUCCESS;
+constexpr AuthenticateWebResult_AuthenticateResult AuthenticateWebResult_AuthenticateResult_AuthenticateResult_MAX = AuthenticateWebResult_AuthenticateResult_INTERNAL_SERVER_ERROR;
+constexpr int AuthenticateWebResult_AuthenticateResult_AuthenticateResult_ARRAYSIZE = AuthenticateWebResult_AuthenticateResult_AuthenticateResult_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* AuthenticateWebFailure_AuthenticateFailureReason_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* AuthenticateWebResult_AuthenticateResult_descriptor();
 template<typename T>
-inline const std::string& AuthenticateWebFailure_AuthenticateFailureReason_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, AuthenticateWebFailure_AuthenticateFailureReason>::value ||
+inline const std::string& AuthenticateWebResult_AuthenticateResult_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, AuthenticateWebResult_AuthenticateResult>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function AuthenticateWebFailure_AuthenticateFailureReason_Name.");
+    "Incorrect type passed to function AuthenticateWebResult_AuthenticateResult_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    AuthenticateWebFailure_AuthenticateFailureReason_descriptor(), enum_t_value);
+    AuthenticateWebResult_AuthenticateResult_descriptor(), enum_t_value);
 }
-inline bool AuthenticateWebFailure_AuthenticateFailureReason_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, AuthenticateWebFailure_AuthenticateFailureReason* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<AuthenticateWebFailure_AuthenticateFailureReason>(
-    AuthenticateWebFailure_AuthenticateFailureReason_descriptor(), name, value);
+inline bool AuthenticateWebResult_AuthenticateResult_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, AuthenticateWebResult_AuthenticateResult* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<AuthenticateWebResult_AuthenticateResult>(
+    AuthenticateWebResult_AuthenticateResult_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -309,23 +303,23 @@ class CreateAccountWeb PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class CreateAccountWebSuccess PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:auth.CreateAccountWebSuccess) */ {
+class CreateAccountWebResult PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:auth.CreateAccountWebResult) */ {
  public:
-  inline CreateAccountWebSuccess() : CreateAccountWebSuccess(nullptr) {}
-  virtual ~CreateAccountWebSuccess();
+  inline CreateAccountWebResult() : CreateAccountWebResult(nullptr) {}
+  virtual ~CreateAccountWebResult();
 
-  CreateAccountWebSuccess(const CreateAccountWebSuccess& from);
-  CreateAccountWebSuccess(CreateAccountWebSuccess&& from) noexcept
-    : CreateAccountWebSuccess() {
+  CreateAccountWebResult(const CreateAccountWebResult& from);
+  CreateAccountWebResult(CreateAccountWebResult&& from) noexcept
+    : CreateAccountWebResult() {
     *this = ::std::move(from);
   }
 
-  inline CreateAccountWebSuccess& operator=(const CreateAccountWebSuccess& from) {
+  inline CreateAccountWebResult& operator=(const CreateAccountWebResult& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CreateAccountWebSuccess& operator=(CreateAccountWebSuccess&& from) noexcept {
+  inline CreateAccountWebResult& operator=(CreateAccountWebResult&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -343,19 +337,19 @@ class CreateAccountWebSuccess PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const CreateAccountWebSuccess& default_instance();
+  static const CreateAccountWebResult& default_instance();
 
-  static inline const CreateAccountWebSuccess* internal_default_instance() {
-    return reinterpret_cast<const CreateAccountWebSuccess*>(
-               &_CreateAccountWebSuccess_default_instance_);
+  static inline const CreateAccountWebResult* internal_default_instance() {
+    return reinterpret_cast<const CreateAccountWebResult*>(
+               &_CreateAccountWebResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(CreateAccountWebSuccess& a, CreateAccountWebSuccess& b) {
+  friend void swap(CreateAccountWebResult& a, CreateAccountWebResult& b) {
     a.Swap(&b);
   }
-  inline void Swap(CreateAccountWebSuccess* other) {
+  inline void Swap(CreateAccountWebResult* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -363,7 +357,7 @@ class CreateAccountWebSuccess PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CreateAccountWebSuccess* other) {
+  void UnsafeArenaSwap(CreateAccountWebResult* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -371,17 +365,17 @@ class CreateAccountWebSuccess PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline CreateAccountWebSuccess* New() const final {
-    return CreateMaybeMessage<CreateAccountWebSuccess>(nullptr);
+  inline CreateAccountWebResult* New() const final {
+    return CreateMaybeMessage<CreateAccountWebResult>(nullptr);
   }
 
-  CreateAccountWebSuccess* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CreateAccountWebSuccess>(arena);
+  CreateAccountWebResult* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CreateAccountWebResult>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CreateAccountWebSuccess& from);
-  void MergeFrom(const CreateAccountWebSuccess& from);
+  void CopyFrom(const CreateAccountWebResult& from);
+  void MergeFrom(const CreateAccountWebResult& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -395,13 +389,13 @@ class CreateAccountWebSuccess PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CreateAccountWebSuccess* other);
+  void InternalSwap(CreateAccountWebResult* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "auth.CreateAccountWebSuccess";
+    return "auth.CreateAccountWebResult";
   }
   protected:
-  explicit CreateAccountWebSuccess(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit CreateAccountWebResult(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -418,11 +412,46 @@ class CreateAccountWebSuccess PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
+  typedef CreateAccountWebResult_CreateAccountResult CreateAccountResult;
+  static constexpr CreateAccountResult SUCCESS =
+    CreateAccountWebResult_CreateAccountResult_SUCCESS;
+  static constexpr CreateAccountResult ACCOUNT_ALREADY_EXISTS =
+    CreateAccountWebResult_CreateAccountResult_ACCOUNT_ALREADY_EXISTS;
+  static constexpr CreateAccountResult INVALID_PASSWORD =
+    CreateAccountWebResult_CreateAccountResult_INVALID_PASSWORD;
+  static constexpr CreateAccountResult INTERNAL_SERVER_ERROR =
+    CreateAccountWebResult_CreateAccountResult_INTERNAL_SERVER_ERROR;
+  static inline bool CreateAccountResult_IsValid(int value) {
+    return CreateAccountWebResult_CreateAccountResult_IsValid(value);
+  }
+  static constexpr CreateAccountResult CreateAccountResult_MIN =
+    CreateAccountWebResult_CreateAccountResult_CreateAccountResult_MIN;
+  static constexpr CreateAccountResult CreateAccountResult_MAX =
+    CreateAccountWebResult_CreateAccountResult_CreateAccountResult_MAX;
+  static constexpr int CreateAccountResult_ARRAYSIZE =
+    CreateAccountWebResult_CreateAccountResult_CreateAccountResult_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  CreateAccountResult_descriptor() {
+    return CreateAccountWebResult_CreateAccountResult_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& CreateAccountResult_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, CreateAccountResult>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function CreateAccountResult_Name.");
+    return CreateAccountWebResult_CreateAccountResult_Name(enum_t_value);
+  }
+  static inline bool CreateAccountResult_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      CreateAccountResult* value) {
+    return CreateAccountWebResult_CreateAccountResult_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   enum : int {
     kRequestIdFieldNumber = 1,
     kUserIdFieldNumber = 2,
+    kReasonFieldNumber = 3,
   };
   // int64 requestId = 1;
   void clear_requestid();
@@ -442,7 +471,16 @@ class CreateAccountWebSuccess PROTOBUF_FINAL :
   void _internal_set_userid(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:auth.CreateAccountWebSuccess)
+  // .auth.CreateAccountWebResult.CreateAccountResult reason = 3;
+  void clear_reason();
+  ::auth::CreateAccountWebResult_CreateAccountResult reason() const;
+  void set_reason(::auth::CreateAccountWebResult_CreateAccountResult value);
+  private:
+  ::auth::CreateAccountWebResult_CreateAccountResult _internal_reason() const;
+  void _internal_set_reason(::auth::CreateAccountWebResult_CreateAccountResult value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:auth.CreateAccountWebResult)
  private:
   class _Internal;
 
@@ -451,184 +489,6 @@ class CreateAccountWebSuccess PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::int64 requestid_;
   ::PROTOBUF_NAMESPACE_ID::int64 userid_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_Auth_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CreateAccountWebFaliure PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:auth.CreateAccountWebFaliure) */ {
- public:
-  inline CreateAccountWebFaliure() : CreateAccountWebFaliure(nullptr) {}
-  virtual ~CreateAccountWebFaliure();
-
-  CreateAccountWebFaliure(const CreateAccountWebFaliure& from);
-  CreateAccountWebFaliure(CreateAccountWebFaliure&& from) noexcept
-    : CreateAccountWebFaliure() {
-    *this = ::std::move(from);
-  }
-
-  inline CreateAccountWebFaliure& operator=(const CreateAccountWebFaliure& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CreateAccountWebFaliure& operator=(CreateAccountWebFaliure&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CreateAccountWebFaliure& default_instance();
-
-  static inline const CreateAccountWebFaliure* internal_default_instance() {
-    return reinterpret_cast<const CreateAccountWebFaliure*>(
-               &_CreateAccountWebFaliure_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  friend void swap(CreateAccountWebFaliure& a, CreateAccountWebFaliure& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CreateAccountWebFaliure* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CreateAccountWebFaliure* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CreateAccountWebFaliure* New() const final {
-    return CreateMaybeMessage<CreateAccountWebFaliure>(nullptr);
-  }
-
-  CreateAccountWebFaliure* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CreateAccountWebFaliure>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CreateAccountWebFaliure& from);
-  void MergeFrom(const CreateAccountWebFaliure& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CreateAccountWebFaliure* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "auth.CreateAccountWebFaliure";
-  }
-  protected:
-  explicit CreateAccountWebFaliure(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Auth_2eproto);
-    return ::descriptor_table_Auth_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  typedef CreateAccountWebFaliure_AccountFailureReason AccountFailureReason;
-  static constexpr AccountFailureReason ACCOUNT_ALREADY_EXISTS =
-    CreateAccountWebFaliure_AccountFailureReason_ACCOUNT_ALREADY_EXISTS;
-  static constexpr AccountFailureReason INVALID_PASSWORD =
-    CreateAccountWebFaliure_AccountFailureReason_INVALID_PASSWORD;
-  static constexpr AccountFailureReason INTERNAL_SERVER_ERROR =
-    CreateAccountWebFaliure_AccountFailureReason_INTERNAL_SERVER_ERROR;
-  static inline bool AccountFailureReason_IsValid(int value) {
-    return CreateAccountWebFaliure_AccountFailureReason_IsValid(value);
-  }
-  static constexpr AccountFailureReason AccountFailureReason_MIN =
-    CreateAccountWebFaliure_AccountFailureReason_AccountFailureReason_MIN;
-  static constexpr AccountFailureReason AccountFailureReason_MAX =
-    CreateAccountWebFaliure_AccountFailureReason_AccountFailureReason_MAX;
-  static constexpr int AccountFailureReason_ARRAYSIZE =
-    CreateAccountWebFaliure_AccountFailureReason_AccountFailureReason_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  AccountFailureReason_descriptor() {
-    return CreateAccountWebFaliure_AccountFailureReason_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& AccountFailureReason_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, AccountFailureReason>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function AccountFailureReason_Name.");
-    return CreateAccountWebFaliure_AccountFailureReason_Name(enum_t_value);
-  }
-  static inline bool AccountFailureReason_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      AccountFailureReason* value) {
-    return CreateAccountWebFaliure_AccountFailureReason_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kRequestIdFieldNumber = 1,
-    kReasonFieldNumber = 2,
-  };
-  // int64 requestId = 1;
-  void clear_requestid();
-  ::PROTOBUF_NAMESPACE_ID::int64 requestid() const;
-  void set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int64 _internal_requestid() const;
-  void _internal_set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value);
-  public:
-
-  // .auth.CreateAccountWebFaliure.AccountFailureReason reason = 2;
-  void clear_reason();
-  ::auth::CreateAccountWebFaliure_AccountFailureReason reason() const;
-  void set_reason(::auth::CreateAccountWebFaliure_AccountFailureReason value);
-  private:
-  ::auth::CreateAccountWebFaliure_AccountFailureReason _internal_reason() const;
-  void _internal_set_reason(::auth::CreateAccountWebFaliure_AccountFailureReason value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:auth.CreateAccountWebFaliure)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int64 requestid_;
   int reason_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Auth_2eproto;
@@ -676,7 +536,7 @@ class AuthenticateWeb PROTOBUF_FINAL :
                &_AuthenticateWeb_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    2;
 
   friend void swap(AuthenticateWeb& a, AuthenticateWeb& b) {
     a.Swap(&b);
@@ -807,23 +667,23 @@ class AuthenticateWeb PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class AuthenticateWebSuccess PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:auth.AuthenticateWebSuccess) */ {
+class AuthenticateWebResult PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:auth.AuthenticateWebResult) */ {
  public:
-  inline AuthenticateWebSuccess() : AuthenticateWebSuccess(nullptr) {}
-  virtual ~AuthenticateWebSuccess();
+  inline AuthenticateWebResult() : AuthenticateWebResult(nullptr) {}
+  virtual ~AuthenticateWebResult();
 
-  AuthenticateWebSuccess(const AuthenticateWebSuccess& from);
-  AuthenticateWebSuccess(AuthenticateWebSuccess&& from) noexcept
-    : AuthenticateWebSuccess() {
+  AuthenticateWebResult(const AuthenticateWebResult& from);
+  AuthenticateWebResult(AuthenticateWebResult&& from) noexcept
+    : AuthenticateWebResult() {
     *this = ::std::move(from);
   }
 
-  inline AuthenticateWebSuccess& operator=(const AuthenticateWebSuccess& from) {
+  inline AuthenticateWebResult& operator=(const AuthenticateWebResult& from) {
     CopyFrom(from);
     return *this;
   }
-  inline AuthenticateWebSuccess& operator=(AuthenticateWebSuccess&& from) noexcept {
+  inline AuthenticateWebResult& operator=(AuthenticateWebResult&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -841,19 +701,19 @@ class AuthenticateWebSuccess PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const AuthenticateWebSuccess& default_instance();
+  static const AuthenticateWebResult& default_instance();
 
-  static inline const AuthenticateWebSuccess* internal_default_instance() {
-    return reinterpret_cast<const AuthenticateWebSuccess*>(
-               &_AuthenticateWebSuccess_default_instance_);
+  static inline const AuthenticateWebResult* internal_default_instance() {
+    return reinterpret_cast<const AuthenticateWebResult*>(
+               &_AuthenticateWebResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    3;
 
-  friend void swap(AuthenticateWebSuccess& a, AuthenticateWebSuccess& b) {
+  friend void swap(AuthenticateWebResult& a, AuthenticateWebResult& b) {
     a.Swap(&b);
   }
-  inline void Swap(AuthenticateWebSuccess* other) {
+  inline void Swap(AuthenticateWebResult* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -861,7 +721,7 @@ class AuthenticateWebSuccess PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AuthenticateWebSuccess* other) {
+  void UnsafeArenaSwap(AuthenticateWebResult* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -869,17 +729,17 @@ class AuthenticateWebSuccess PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline AuthenticateWebSuccess* New() const final {
-    return CreateMaybeMessage<AuthenticateWebSuccess>(nullptr);
+  inline AuthenticateWebResult* New() const final {
+    return CreateMaybeMessage<AuthenticateWebResult>(nullptr);
   }
 
-  AuthenticateWebSuccess* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<AuthenticateWebSuccess>(arena);
+  AuthenticateWebResult* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<AuthenticateWebResult>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const AuthenticateWebSuccess& from);
-  void MergeFrom(const AuthenticateWebSuccess& from);
+  void CopyFrom(const AuthenticateWebResult& from);
+  void MergeFrom(const AuthenticateWebResult& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -893,13 +753,13 @@ class AuthenticateWebSuccess PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AuthenticateWebSuccess* other);
+  void InternalSwap(AuthenticateWebResult* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "auth.AuthenticateWebSuccess";
+    return "auth.AuthenticateWebResult";
   }
   protected:
-  explicit AuthenticateWebSuccess(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit AuthenticateWebResult(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -916,14 +776,47 @@ class AuthenticateWebSuccess PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
+  typedef AuthenticateWebResult_AuthenticateResult AuthenticateResult;
+  static constexpr AuthenticateResult SUCCESS =
+    AuthenticateWebResult_AuthenticateResult_SUCCESS;
+  static constexpr AuthenticateResult INVALID_CREDENTIALS =
+    AuthenticateWebResult_AuthenticateResult_INVALID_CREDENTIALS;
+  static constexpr AuthenticateResult INTERNAL_SERVER_ERROR =
+    AuthenticateWebResult_AuthenticateResult_INTERNAL_SERVER_ERROR;
+  static inline bool AuthenticateResult_IsValid(int value) {
+    return AuthenticateWebResult_AuthenticateResult_IsValid(value);
+  }
+  static constexpr AuthenticateResult AuthenticateResult_MIN =
+    AuthenticateWebResult_AuthenticateResult_AuthenticateResult_MIN;
+  static constexpr AuthenticateResult AuthenticateResult_MAX =
+    AuthenticateWebResult_AuthenticateResult_AuthenticateResult_MAX;
+  static constexpr int AuthenticateResult_ARRAYSIZE =
+    AuthenticateWebResult_AuthenticateResult_AuthenticateResult_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  AuthenticateResult_descriptor() {
+    return AuthenticateWebResult_AuthenticateResult_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& AuthenticateResult_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, AuthenticateResult>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function AuthenticateResult_Name.");
+    return AuthenticateWebResult_AuthenticateResult_Name(enum_t_value);
+  }
+  static inline bool AuthenticateResult_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      AuthenticateResult* value) {
+    return AuthenticateWebResult_AuthenticateResult_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   enum : int {
-    kCreationDateFieldNumber = 3,
+    kCreationDateFieldNumber = 4,
     kRequestIdFieldNumber = 1,
     kUserIdFieldNumber = 2,
+    kReasonFieldNumber = 3,
   };
-  // string creationDate = 3;
+  // string creationDate = 4;
   void clear_creationdate();
   const std::string& creationdate() const;
   void set_creationdate(const std::string& value);
@@ -957,7 +850,16 @@ class AuthenticateWebSuccess PROTOBUF_FINAL :
   void _internal_set_userid(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:auth.AuthenticateWebSuccess)
+  // .auth.AuthenticateWebResult.AuthenticateResult reason = 3;
+  void clear_reason();
+  ::auth::AuthenticateWebResult_AuthenticateResult reason() const;
+  void set_reason(::auth::AuthenticateWebResult_AuthenticateResult value);
+  private:
+  ::auth::AuthenticateWebResult_AuthenticateResult _internal_reason() const;
+  void _internal_set_reason(::auth::AuthenticateWebResult_AuthenticateResult value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:auth.AuthenticateWebResult)
  private:
   class _Internal;
 
@@ -967,182 +869,6 @@ class AuthenticateWebSuccess PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr creationdate_;
   ::PROTOBUF_NAMESPACE_ID::int64 requestid_;
   ::PROTOBUF_NAMESPACE_ID::int64 userid_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_Auth_2eproto;
-};
-// -------------------------------------------------------------------
-
-class AuthenticateWebFailure PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:auth.AuthenticateWebFailure) */ {
- public:
-  inline AuthenticateWebFailure() : AuthenticateWebFailure(nullptr) {}
-  virtual ~AuthenticateWebFailure();
-
-  AuthenticateWebFailure(const AuthenticateWebFailure& from);
-  AuthenticateWebFailure(AuthenticateWebFailure&& from) noexcept
-    : AuthenticateWebFailure() {
-    *this = ::std::move(from);
-  }
-
-  inline AuthenticateWebFailure& operator=(const AuthenticateWebFailure& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline AuthenticateWebFailure& operator=(AuthenticateWebFailure&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const AuthenticateWebFailure& default_instance();
-
-  static inline const AuthenticateWebFailure* internal_default_instance() {
-    return reinterpret_cast<const AuthenticateWebFailure*>(
-               &_AuthenticateWebFailure_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    5;
-
-  friend void swap(AuthenticateWebFailure& a, AuthenticateWebFailure& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(AuthenticateWebFailure* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(AuthenticateWebFailure* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline AuthenticateWebFailure* New() const final {
-    return CreateMaybeMessage<AuthenticateWebFailure>(nullptr);
-  }
-
-  AuthenticateWebFailure* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<AuthenticateWebFailure>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const AuthenticateWebFailure& from);
-  void MergeFrom(const AuthenticateWebFailure& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(AuthenticateWebFailure* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "auth.AuthenticateWebFailure";
-  }
-  protected:
-  explicit AuthenticateWebFailure(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Auth_2eproto);
-    return ::descriptor_table_Auth_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  typedef AuthenticateWebFailure_AuthenticateFailureReason AuthenticateFailureReason;
-  static constexpr AuthenticateFailureReason INVALID_CREDENTIALS =
-    AuthenticateWebFailure_AuthenticateFailureReason_INVALID_CREDENTIALS;
-  static constexpr AuthenticateFailureReason INTERNALL_SERVER_ERROR =
-    AuthenticateWebFailure_AuthenticateFailureReason_INTERNALL_SERVER_ERROR;
-  static inline bool AuthenticateFailureReason_IsValid(int value) {
-    return AuthenticateWebFailure_AuthenticateFailureReason_IsValid(value);
-  }
-  static constexpr AuthenticateFailureReason AuthenticateFailureReason_MIN =
-    AuthenticateWebFailure_AuthenticateFailureReason_AuthenticateFailureReason_MIN;
-  static constexpr AuthenticateFailureReason AuthenticateFailureReason_MAX =
-    AuthenticateWebFailure_AuthenticateFailureReason_AuthenticateFailureReason_MAX;
-  static constexpr int AuthenticateFailureReason_ARRAYSIZE =
-    AuthenticateWebFailure_AuthenticateFailureReason_AuthenticateFailureReason_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  AuthenticateFailureReason_descriptor() {
-    return AuthenticateWebFailure_AuthenticateFailureReason_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& AuthenticateFailureReason_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, AuthenticateFailureReason>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function AuthenticateFailureReason_Name.");
-    return AuthenticateWebFailure_AuthenticateFailureReason_Name(enum_t_value);
-  }
-  static inline bool AuthenticateFailureReason_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      AuthenticateFailureReason* value) {
-    return AuthenticateWebFailure_AuthenticateFailureReason_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kRequestIdFieldNumber = 1,
-    kReasonFieldNumber = 2,
-  };
-  // int64 requestId = 1;
-  void clear_requestid();
-  ::PROTOBUF_NAMESPACE_ID::int64 requestid() const;
-  void set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int64 _internal_requestid() const;
-  void _internal_set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value);
-  public:
-
-  // .auth.AuthenticateWebFailure.AuthenticateFailureReason reason = 2;
-  void clear_reason();
-  ::auth::AuthenticateWebFailure_AuthenticateFailureReason reason() const;
-  void set_reason(::auth::AuthenticateWebFailure_AuthenticateFailureReason value);
-  private:
-  ::auth::AuthenticateWebFailure_AuthenticateFailureReason _internal_reason() const;
-  void _internal_set_reason(::auth::AuthenticateWebFailure_AuthenticateFailureReason value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:auth.AuthenticateWebFailure)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int64 requestid_;
   int reason_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Auth_2eproto;
@@ -1302,90 +1028,66 @@ inline void CreateAccountWeb::set_allocated_plaintextpassword(std::string* plain
 
 // -------------------------------------------------------------------
 
-// CreateAccountWebSuccess
+// CreateAccountWebResult
 
 // int64 requestId = 1;
-inline void CreateAccountWebSuccess::clear_requestid() {
+inline void CreateAccountWebResult::clear_requestid() {
   requestid_ = PROTOBUF_LONGLONG(0);
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 CreateAccountWebSuccess::_internal_requestid() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 CreateAccountWebResult::_internal_requestid() const {
   return requestid_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 CreateAccountWebSuccess::requestid() const {
-  // @@protoc_insertion_point(field_get:auth.CreateAccountWebSuccess.requestId)
+inline ::PROTOBUF_NAMESPACE_ID::int64 CreateAccountWebResult::requestid() const {
+  // @@protoc_insertion_point(field_get:auth.CreateAccountWebResult.requestId)
   return _internal_requestid();
 }
-inline void CreateAccountWebSuccess::_internal_set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void CreateAccountWebResult::_internal_set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   requestid_ = value;
 }
-inline void CreateAccountWebSuccess::set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void CreateAccountWebResult::set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_requestid(value);
-  // @@protoc_insertion_point(field_set:auth.CreateAccountWebSuccess.requestId)
+  // @@protoc_insertion_point(field_set:auth.CreateAccountWebResult.requestId)
 }
 
 // int64 userId = 2;
-inline void CreateAccountWebSuccess::clear_userid() {
+inline void CreateAccountWebResult::clear_userid() {
   userid_ = PROTOBUF_LONGLONG(0);
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 CreateAccountWebSuccess::_internal_userid() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 CreateAccountWebResult::_internal_userid() const {
   return userid_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 CreateAccountWebSuccess::userid() const {
-  // @@protoc_insertion_point(field_get:auth.CreateAccountWebSuccess.userId)
+inline ::PROTOBUF_NAMESPACE_ID::int64 CreateAccountWebResult::userid() const {
+  // @@protoc_insertion_point(field_get:auth.CreateAccountWebResult.userId)
   return _internal_userid();
 }
-inline void CreateAccountWebSuccess::_internal_set_userid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void CreateAccountWebResult::_internal_set_userid(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   userid_ = value;
 }
-inline void CreateAccountWebSuccess::set_userid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void CreateAccountWebResult::set_userid(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_userid(value);
-  // @@protoc_insertion_point(field_set:auth.CreateAccountWebSuccess.userId)
+  // @@protoc_insertion_point(field_set:auth.CreateAccountWebResult.userId)
 }
 
-// -------------------------------------------------------------------
-
-// CreateAccountWebFaliure
-
-// int64 requestId = 1;
-inline void CreateAccountWebFaliure::clear_requestid() {
-  requestid_ = PROTOBUF_LONGLONG(0);
-}
-inline ::PROTOBUF_NAMESPACE_ID::int64 CreateAccountWebFaliure::_internal_requestid() const {
-  return requestid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int64 CreateAccountWebFaliure::requestid() const {
-  // @@protoc_insertion_point(field_get:auth.CreateAccountWebFaliure.requestId)
-  return _internal_requestid();
-}
-inline void CreateAccountWebFaliure::_internal_set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  
-  requestid_ = value;
-}
-inline void CreateAccountWebFaliure::set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _internal_set_requestid(value);
-  // @@protoc_insertion_point(field_set:auth.CreateAccountWebFaliure.requestId)
-}
-
-// .auth.CreateAccountWebFaliure.AccountFailureReason reason = 2;
-inline void CreateAccountWebFaliure::clear_reason() {
+// .auth.CreateAccountWebResult.CreateAccountResult reason = 3;
+inline void CreateAccountWebResult::clear_reason() {
   reason_ = 0;
 }
-inline ::auth::CreateAccountWebFaliure_AccountFailureReason CreateAccountWebFaliure::_internal_reason() const {
-  return static_cast< ::auth::CreateAccountWebFaliure_AccountFailureReason >(reason_);
+inline ::auth::CreateAccountWebResult_CreateAccountResult CreateAccountWebResult::_internal_reason() const {
+  return static_cast< ::auth::CreateAccountWebResult_CreateAccountResult >(reason_);
 }
-inline ::auth::CreateAccountWebFaliure_AccountFailureReason CreateAccountWebFaliure::reason() const {
-  // @@protoc_insertion_point(field_get:auth.CreateAccountWebFaliure.reason)
+inline ::auth::CreateAccountWebResult_CreateAccountResult CreateAccountWebResult::reason() const {
+  // @@protoc_insertion_point(field_get:auth.CreateAccountWebResult.reason)
   return _internal_reason();
 }
-inline void CreateAccountWebFaliure::_internal_set_reason(::auth::CreateAccountWebFaliure_AccountFailureReason value) {
+inline void CreateAccountWebResult::_internal_set_reason(::auth::CreateAccountWebResult_CreateAccountResult value) {
   
   reason_ = value;
 }
-inline void CreateAccountWebFaliure::set_reason(::auth::CreateAccountWebFaliure_AccountFailureReason value) {
+inline void CreateAccountWebResult::set_reason(::auth::CreateAccountWebResult_CreateAccountResult value) {
   _internal_set_reason(value);
-  // @@protoc_insertion_point(field_set:auth.CreateAccountWebFaliure.reason)
+  // @@protoc_insertion_point(field_set:auth.CreateAccountWebResult.reason)
 }
 
 // -------------------------------------------------------------------
@@ -1536,99 +1238,119 @@ inline void AuthenticateWeb::set_allocated_plaintextpassword(std::string* plaint
 
 // -------------------------------------------------------------------
 
-// AuthenticateWebSuccess
+// AuthenticateWebResult
 
 // int64 requestId = 1;
-inline void AuthenticateWebSuccess::clear_requestid() {
+inline void AuthenticateWebResult::clear_requestid() {
   requestid_ = PROTOBUF_LONGLONG(0);
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebSuccess::_internal_requestid() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebResult::_internal_requestid() const {
   return requestid_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebSuccess::requestid() const {
-  // @@protoc_insertion_point(field_get:auth.AuthenticateWebSuccess.requestId)
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebResult::requestid() const {
+  // @@protoc_insertion_point(field_get:auth.AuthenticateWebResult.requestId)
   return _internal_requestid();
 }
-inline void AuthenticateWebSuccess::_internal_set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void AuthenticateWebResult::_internal_set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   requestid_ = value;
 }
-inline void AuthenticateWebSuccess::set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void AuthenticateWebResult::set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_requestid(value);
-  // @@protoc_insertion_point(field_set:auth.AuthenticateWebSuccess.requestId)
+  // @@protoc_insertion_point(field_set:auth.AuthenticateWebResult.requestId)
 }
 
 // int64 userId = 2;
-inline void AuthenticateWebSuccess::clear_userid() {
+inline void AuthenticateWebResult::clear_userid() {
   userid_ = PROTOBUF_LONGLONG(0);
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebSuccess::_internal_userid() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebResult::_internal_userid() const {
   return userid_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebSuccess::userid() const {
-  // @@protoc_insertion_point(field_get:auth.AuthenticateWebSuccess.userId)
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebResult::userid() const {
+  // @@protoc_insertion_point(field_get:auth.AuthenticateWebResult.userId)
   return _internal_userid();
 }
-inline void AuthenticateWebSuccess::_internal_set_userid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void AuthenticateWebResult::_internal_set_userid(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   userid_ = value;
 }
-inline void AuthenticateWebSuccess::set_userid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void AuthenticateWebResult::set_userid(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_userid(value);
-  // @@protoc_insertion_point(field_set:auth.AuthenticateWebSuccess.userId)
+  // @@protoc_insertion_point(field_set:auth.AuthenticateWebResult.userId)
 }
 
-// string creationDate = 3;
-inline void AuthenticateWebSuccess::clear_creationdate() {
+// .auth.AuthenticateWebResult.AuthenticateResult reason = 3;
+inline void AuthenticateWebResult::clear_reason() {
+  reason_ = 0;
+}
+inline ::auth::AuthenticateWebResult_AuthenticateResult AuthenticateWebResult::_internal_reason() const {
+  return static_cast< ::auth::AuthenticateWebResult_AuthenticateResult >(reason_);
+}
+inline ::auth::AuthenticateWebResult_AuthenticateResult AuthenticateWebResult::reason() const {
+  // @@protoc_insertion_point(field_get:auth.AuthenticateWebResult.reason)
+  return _internal_reason();
+}
+inline void AuthenticateWebResult::_internal_set_reason(::auth::AuthenticateWebResult_AuthenticateResult value) {
+  
+  reason_ = value;
+}
+inline void AuthenticateWebResult::set_reason(::auth::AuthenticateWebResult_AuthenticateResult value) {
+  _internal_set_reason(value);
+  // @@protoc_insertion_point(field_set:auth.AuthenticateWebResult.reason)
+}
+
+// string creationDate = 4;
+inline void AuthenticateWebResult::clear_creationdate() {
   creationdate_.ClearToEmpty();
 }
-inline const std::string& AuthenticateWebSuccess::creationdate() const {
-  // @@protoc_insertion_point(field_get:auth.AuthenticateWebSuccess.creationDate)
+inline const std::string& AuthenticateWebResult::creationdate() const {
+  // @@protoc_insertion_point(field_get:auth.AuthenticateWebResult.creationDate)
   return _internal_creationdate();
 }
-inline void AuthenticateWebSuccess::set_creationdate(const std::string& value) {
+inline void AuthenticateWebResult::set_creationdate(const std::string& value) {
   _internal_set_creationdate(value);
-  // @@protoc_insertion_point(field_set:auth.AuthenticateWebSuccess.creationDate)
+  // @@protoc_insertion_point(field_set:auth.AuthenticateWebResult.creationDate)
 }
-inline std::string* AuthenticateWebSuccess::mutable_creationdate() {
-  // @@protoc_insertion_point(field_mutable:auth.AuthenticateWebSuccess.creationDate)
+inline std::string* AuthenticateWebResult::mutable_creationdate() {
+  // @@protoc_insertion_point(field_mutable:auth.AuthenticateWebResult.creationDate)
   return _internal_mutable_creationdate();
 }
-inline const std::string& AuthenticateWebSuccess::_internal_creationdate() const {
+inline const std::string& AuthenticateWebResult::_internal_creationdate() const {
   return creationdate_.Get();
 }
-inline void AuthenticateWebSuccess::_internal_set_creationdate(const std::string& value) {
+inline void AuthenticateWebResult::_internal_set_creationdate(const std::string& value) {
   
   creationdate_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void AuthenticateWebSuccess::set_creationdate(std::string&& value) {
+inline void AuthenticateWebResult::set_creationdate(std::string&& value) {
   
   creationdate_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:auth.AuthenticateWebSuccess.creationDate)
+  // @@protoc_insertion_point(field_set_rvalue:auth.AuthenticateWebResult.creationDate)
 }
-inline void AuthenticateWebSuccess::set_creationdate(const char* value) {
+inline void AuthenticateWebResult::set_creationdate(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   creationdate_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:auth.AuthenticateWebSuccess.creationDate)
+  // @@protoc_insertion_point(field_set_char:auth.AuthenticateWebResult.creationDate)
 }
-inline void AuthenticateWebSuccess::set_creationdate(const char* value,
+inline void AuthenticateWebResult::set_creationdate(const char* value,
     size_t size) {
   
   creationdate_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:auth.AuthenticateWebSuccess.creationDate)
+  // @@protoc_insertion_point(field_set_pointer:auth.AuthenticateWebResult.creationDate)
 }
-inline std::string* AuthenticateWebSuccess::_internal_mutable_creationdate() {
+inline std::string* AuthenticateWebResult::_internal_mutable_creationdate() {
   
   return creationdate_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* AuthenticateWebSuccess::release_creationdate() {
-  // @@protoc_insertion_point(field_release:auth.AuthenticateWebSuccess.creationDate)
+inline std::string* AuthenticateWebResult::release_creationdate() {
+  // @@protoc_insertion_point(field_release:auth.AuthenticateWebResult.creationDate)
   return creationdate_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void AuthenticateWebSuccess::set_allocated_creationdate(std::string* creationdate) {
+inline void AuthenticateWebResult::set_allocated_creationdate(std::string* creationdate) {
   if (creationdate != nullptr) {
     
   } else {
@@ -1636,60 +1358,12 @@ inline void AuthenticateWebSuccess::set_allocated_creationdate(std::string* crea
   }
   creationdate_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), creationdate,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:auth.AuthenticateWebSuccess.creationDate)
-}
-
-// -------------------------------------------------------------------
-
-// AuthenticateWebFailure
-
-// int64 requestId = 1;
-inline void AuthenticateWebFailure::clear_requestid() {
-  requestid_ = PROTOBUF_LONGLONG(0);
-}
-inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebFailure::_internal_requestid() const {
-  return requestid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebFailure::requestid() const {
-  // @@protoc_insertion_point(field_get:auth.AuthenticateWebFailure.requestId)
-  return _internal_requestid();
-}
-inline void AuthenticateWebFailure::_internal_set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  
-  requestid_ = value;
-}
-inline void AuthenticateWebFailure::set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _internal_set_requestid(value);
-  // @@protoc_insertion_point(field_set:auth.AuthenticateWebFailure.requestId)
-}
-
-// .auth.AuthenticateWebFailure.AuthenticateFailureReason reason = 2;
-inline void AuthenticateWebFailure::clear_reason() {
-  reason_ = 0;
-}
-inline ::auth::AuthenticateWebFailure_AuthenticateFailureReason AuthenticateWebFailure::_internal_reason() const {
-  return static_cast< ::auth::AuthenticateWebFailure_AuthenticateFailureReason >(reason_);
-}
-inline ::auth::AuthenticateWebFailure_AuthenticateFailureReason AuthenticateWebFailure::reason() const {
-  // @@protoc_insertion_point(field_get:auth.AuthenticateWebFailure.reason)
-  return _internal_reason();
-}
-inline void AuthenticateWebFailure::_internal_set_reason(::auth::AuthenticateWebFailure_AuthenticateFailureReason value) {
-  
-  reason_ = value;
-}
-inline void AuthenticateWebFailure::set_reason(::auth::AuthenticateWebFailure_AuthenticateFailureReason value) {
-  _internal_set_reason(value);
-  // @@protoc_insertion_point(field_set:auth.AuthenticateWebFailure.reason)
+  // @@protoc_insertion_point(field_set_allocated:auth.AuthenticateWebResult.creationDate)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -1703,15 +1377,15 @@ inline void AuthenticateWebFailure::set_reason(::auth::AuthenticateWebFailure_Au
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::auth::CreateAccountWebFaliure_AccountFailureReason> : ::std::true_type {};
+template <> struct is_proto_enum< ::auth::CreateAccountWebResult_CreateAccountResult> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::auth::CreateAccountWebFaliure_AccountFailureReason>() {
-  return ::auth::CreateAccountWebFaliure_AccountFailureReason_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::auth::CreateAccountWebResult_CreateAccountResult>() {
+  return ::auth::CreateAccountWebResult_CreateAccountResult_descriptor();
 }
-template <> struct is_proto_enum< ::auth::AuthenticateWebFailure_AuthenticateFailureReason> : ::std::true_type {};
+template <> struct is_proto_enum< ::auth::AuthenticateWebResult_AuthenticateResult> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::auth::AuthenticateWebFailure_AuthenticateFailureReason>() {
-  return ::auth::AuthenticateWebFailure_AuthenticateFailureReason_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::auth::AuthenticateWebResult_AuthenticateResult>() {
+  return ::auth::AuthenticateWebResult_AuthenticateResult_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
