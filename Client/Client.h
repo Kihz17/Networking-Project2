@@ -23,8 +23,17 @@ public:
 
 	netutils::Buffer buffer;
 
+	bool authenticated;
+	bool waitingForServerResponse;
 private:
 	void ShutDown();
+
+	void Login(const std::string& email, const std::string& password);
+	void Register(const std::string& email, const std::string& password);
+
+	void HandleKeyboardInput(bool& sendEnterMessage, std::vector<char>& message, bool& roomChange);
+
+	void AskToLogin();
 
 	bool running;
 

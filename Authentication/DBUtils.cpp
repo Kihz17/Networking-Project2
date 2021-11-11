@@ -3,17 +3,6 @@
 
 #include <sstream>
 
-// Web auth columns
-uint32_t waIdColumnNumber = 1;
-uint32_t waEmailColumnNumber = 2;
-uint32_t waSaltColumnNumber = 3;
-uint32_t waHashColumnNumber = 4;
-uint32_t waUserIdColumnNumber = 5;
-
-// user columns
-uint32_t uId = 1;
-uint32_t uLastLogin = 2;
-uint32_t uCreationDate = 3;
 
 DBUtils::DBUtils(void)
 	: m_IsConnected(false)
@@ -29,73 +18,97 @@ bool DBUtils::IsConnected(void)
 	return m_IsConnected;
 }
 
-WebResult DBUtils::AuthenticateAccount(const std::string& email, const std::string& plainTextPassword)
+auth::AuthenticateWebResult_AuthenticateResult DBUtils::AuthenticateAccount(const std::string& email, const std::string& plainTextPassword, long& userId, std::string& creationDate)
 {
 	sql::Statement* stmt = this->m_Connection->createStatement();
 	try
 	{
 		std::stringstream ss;
-		ss << "SELECT userId FROM `web_auth` WHERE email = \"" << email << "\";";
+		ss << "SELECT salt, hashed_password, userId FROM `web_auth` WHERE email = \"" << email << "\";";
 		this->m_ResultSet = stmt->executeQuery(ss.str());
 		ss.str("");
-		this->m_ResultSet->next();
+		if (!this->m_ResultSet->next()) // We have no results
+		{
+			userId = 0;
+			return auth::AuthenticateWebResult_AuthenticateResult::AuthenticateWebResult_AuthenticateResult_INVALID_CREDENTIALS;
+		}
 
-		std::string salt = this->m_ResultSet->getString(waSaltColumnNumber);
-		std::string hash = this->m_ResultSet->getString(waHashColumnNumber);
-		int64_t userId = this->m_ResultSet->getInt64(waUserIdColumnNumber);
+		userId = this->m_ResultSet->getInt64("userId");
+		std::string salt = this->m_ResultSet->getString("salt");
+		std::string hash = this->m_ResultSet->getString("hashed_password");
 
 		std::string hashedPass = salt + hash;
 		if (BCryptUtils::VerifyPassword(plainTextPassword, hashedPass))
 		{
-			printf("Login success!");
-
+			// Get the date the account was created
 			ss << "SELECT creation_date FROM `user` WHERE userId = " << userId << ";";
 			this->m_ResultSet = stmt->executeQuery(ss.str());
 			this->m_ResultSet->next();
-			std::string creationDate = this->m_ResultSet->getString(uCreationDate);
-			return WebResult::SUCCESS;
-			// TOOD: Return this info to the server
+			creationDate = this->m_ResultSet->getString("creation_date");
+
+			// Update last login to now
+			ss.str("");
+			std::time_t timestamp = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+			ss << "UPDATE `user` SET last_login = " << timestamp << " WHERE userId = " << userId << ";"; 
+			stmt->executeUpdate(ss.str());
+
+			return auth::AuthenticateWebResult_AuthenticateResult::AuthenticateWebResult_AuthenticateResult_SUCCESS;
 		}
 		else
 		{
-			printf("Invalid credentials!");
-			return WebResult::INVALID_CREDENTIALS;
+			return auth::AuthenticateWebResult_AuthenticateResult::AuthenticateWebResult_AuthenticateResult_INVALID_CREDENTIALS;
 		}
 	}
-	catch (SQLException e)
+	catch (SQLException e) 
 	{
-		printf("Account does not exist!\n");
-		return WebResult::INVALID_CREDENTIALS;
+		return auth::AuthenticateWebResult_AuthenticateResult::AuthenticateWebResult_AuthenticateResult_INTERNAL_SERVER_ERROR;
 	}
 }
 
-WebResult DBUtils::CreateAccount(const std::string& email, const std::string& password)
+auth::CreateAccountWebResult_CreateAccountResult DBUtils::CreateAccount(const std::string& email, const std::string& password)
 {
 	sql::Statement* stmt = this->m_Connection->createStatement();
 	try
 	{
-		this->m_ResultSet = stmt->executeQuery("SELECT * FROM `web_auth` WHERE email ;");
+		std::stringstream ss;
+		ss << "SELECT * FROM `web_auth` WHERE email = \"" << email << "\";";
+		this->m_ResultSet = stmt->executeQuery(ss.str());
+		if (this->m_ResultSet->next()) // This account already exists
+		{
+			return auth::CreateAccountWebResult_CreateAccountResult::CreateAccountWebResult_CreateAccountResult_ACCOUNT_ALREADY_EXISTS;
+		}
+
+		ss.str("");
+		std::string salt; // TODO: Generate salt
+		std::string hash; // TODO: Generate hash
+
+		// Add new user to user table
+
+		//ss << "INSERT INTO `user` (last_login, creation_date) VALUES (-1, " << date << ");";
+		if (!stmt->execute(ss.str())) // We failed yo create new user
+		{
+			std::cout << "Failed to insert new user into user table!" << std::endl;
+			return auth::CreateAccountWebResult_CreateAccountResult::CreateAccountWebResult_CreateAccountResult_INTERNAL_SERVER_ERROR;
+		}
+
+		this->m_ResultSet = stmt->executeQuery("SELECT last_insert_id() FROM user"); // This will get the ID of the user we just inserted
+		uint64_t userId = this->m_ResultSet->getInt("last_insert_id()");
+
+		// Insert data into web_auth table
+		ss.str("");
+		ss << "INSERT INTO `web_auth` (email, salt, hashed_password, userId) VALUES(" << email << ", " << salt << ", " << hash << ", " << userId << ");";
+		if (!stmt->execute(ss.str()))
+		{
+			std::cout << "Failed to insert new data into the web_auth table!" << std::endl;
+			return auth::CreateAccountWebResult_CreateAccountResult::CreateAccountWebResult_CreateAccountResult_INTERNAL_SERVER_ERROR;
+		}
+
+		return auth::CreateAccountWebResult_CreateAccountResult::CreateAccountWebResult_CreateAccountResult_SUCCESS;
 	}
 	catch (SQLException e)
 	{
-		printf("Failed to retrieved web_auth data!\n");
-		return WebResult::INTERNAL_SERVER_ERROR;
+		return auth::CreateAccountWebResult_CreateAccountResult::CreateAccountWebResult_CreateAccountResult_INTERNAL_SERVER_ERROR;
 	}
-
-	while (this->m_ResultSet->next())
-	{
-		int32_t id = this->m_ResultSet->getInt(sql::SQLString("id"));
-		printf("id: %d\n", id);
-		int32_t id_bycolumn = this->m_ResultSet->getInt(1);
-		printf("id_bycolumn(1): %d\n", id_bycolumn);
-
-		SQLString email = this->m_ResultSet->getString("email");
-		printf("email: %s\n", email.c_str());
-	}
-
-
-	printf("Successfully retrieved web_auth data!\n");
-	return WebResult::SUCCESS;
 }
 
 bool DBUtils::Connect(const std::string& hostname, const std::string& username, const std::string& password)

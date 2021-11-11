@@ -7,6 +7,9 @@
 
 #define DEFAULT_PORT "27777"	
 
+#define AUTH_IP "127.0.0.1"
+#define AUTH_PORT "27778"	
+
 int main(void)
 {
     int result = 0;
@@ -20,7 +23,7 @@ int main(void)
         return 1;
     }
 
-    Server server(DEFAULT_PORT);
+    Server server(AUTH_IP, AUTH_PORT, DEFAULT_PORT);
     if (!server.Initialize())
     {
         printf("Server failed to initialize!\n");

@@ -6,18 +6,15 @@
 
 #include "AuthServer.h"
 
-#include <Auth.pb.h>
-
-#include "BCryptUtils.h"
-
 int main()
 {  
-    char salt[BCRYPT_HASHSIZE];
-    BCryptUtils::GenerateSalt(salt);
-    std::string saltS(salt);
-    std::string hash = BCryptUtils::GenerateHash("password", salt);
-    std::cout << "Salt: " << salt << " (" << saltS.length() << ")" << std::endl;
-    std::cout << "Hash: " << hash << " (" << hash.length() << ")" << std::endl;
+    char formattedDate[100];
+    time_t* currTime;
+    tm* time;
+    std::time(currTime);
+    time = std::localtime(currTime);
+
+    std::cout << std::strftime(formattedDate, 59, "%d-%Y", time) << std::endl;
     int result = 0;
     WSADATA wsaData; // Holds winsock data
 

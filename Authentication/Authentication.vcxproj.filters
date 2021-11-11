@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\PacketHandlers">
+      <UniqueIdentifier>{4b444918-3524-4a5d-9eb6-c948d7967613}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PacketHandlers">
+      <UniqueIdentifier>{02ad9e00-4845-44aa-89ec-80db3945d830}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,6 +33,12 @@
     <ClCompile Include="BCryptUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PacketManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketLoginRequestHandler.cpp">
+      <Filter>Source Files\PacketHandlers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DBUtils.h">
@@ -37,6 +49,18 @@
     </ClInclude>
     <ClInclude Include="BCryptUtils.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AuthClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketLoginRequestHandler.h">
+      <Filter>Header Files\PacketHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="IPacketHandler.h">
+      <Filter>Header Files\PacketHandlers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

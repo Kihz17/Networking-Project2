@@ -18,7 +18,7 @@
 class Server
 {
 public:
-	Server(PCSTR port);
+	Server(PCSTR authServerIp, PCSTR authPort, PCSTR port);
 	~Server();
 
 	bool Initialize();
@@ -41,16 +41,26 @@ public:
 
 	std::string FindClientRoom(Client* client);
 
+	void SendToAuthServer(netutils::Buffer& buffer);
+
 private:
 	void ShutDown();
+
+	bool ResolveAuthServer();
 
 	PCSTR port;
 	SOCKET connectionSocket; // This socket is used to listen for incoming connections
 	SOCKET acceptSocket; // Will hold a new connection
 
+	// Holds data to our auth server
+	PCSTR authServerIp;
+	PCSTR authServerPort;
+	SOCKET authServerSocket;
+
 	//create a map with rooms and clients ?
 	std::map<std::string, std::vector<Client*>> rooms;
 	std::map<Client*, std::string> clientToRoomMap; // Holds what room a client is in
 
+	std::map<unsigned int, Client*> unauthenticatedClients; 
 	std::vector<Client*> clients; // Holds our connected clients
 };

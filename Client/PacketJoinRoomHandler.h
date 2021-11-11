@@ -7,5 +7,5 @@ public:
 		
 private:
 	friend class PacketManager;
-	PacketJoinRoomHandler();
+	PacketJoinRoomHandler() = default;
 };

@@ -3,11 +3,6 @@
 #include <iostream>
 #include <string>
 
-PacketJoinRoomHandler::PacketJoinRoomHandler()
-{
-
-}
-
 void PacketJoinRoomHandler::HandleOnClient(Client& client, const SOCKET& serverSocket)
 {
 	int roomNameLength = client.buffer.ReadInt();

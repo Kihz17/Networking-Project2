@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\PacketHandlers">
+      <UniqueIdentifier>{554b1530-e7fc-4b41-99b6-a3e04b54fa21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PacketHandlers">
+      <UniqueIdentifier>{d29d9d63-9eeb-4f7e-a7e0-610c82b582ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -25,16 +31,22 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PacketJoinRoomHandler.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\PacketHandlers</Filter>
     </ClCompile>
     <ClCompile Include="PacketJoinRoomHandler.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\PacketHandlers</Filter>
     </ClCompile>
     <ClCompile Include="PacketLeaveRoomHandler.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\PacketHandlers</Filter>
     </ClCompile>
     <ClCompile Include="PacketReceiveMessageHandler.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\PacketHandlers</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketLoginResultHandler.cpp">
+      <Filter>Source Files\PacketHandlers</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketRegisterResultHandler.cpp">
+      <Filter>Source Files\PacketHandlers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -45,13 +57,19 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IPacketHandler.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\PacketHandlers</Filter>
     </ClInclude>
     <ClInclude Include="PacketLeaveRoomHandler.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\PacketHandlers</Filter>
     </ClInclude>
     <ClInclude Include="PacketReceiveMessageHandler.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\PacketHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketLoginResultHandler.h">
+      <Filter>Header Files\PacketHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketRegisterResultHandler.h">
+      <Filter>Header Files\PacketHandlers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

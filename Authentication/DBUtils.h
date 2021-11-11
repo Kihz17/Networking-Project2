@@ -2,18 +2,11 @@
 
 #include <mysql/jdbc.h>
 
+#include <Auth.pb.h>
+
 #include <string>
 
 using namespace sql;
-
-enum WebResult
-{
-	SUCCESS,
-	INVALID_CREDENTIALS,
-	ACCOUNT_ALREADY_EXISTS,
-	INVALID_PASSWORD,
-	INTERNAL_SERVER_ERROR
-};
 
 class DBUtils
 {
@@ -27,9 +20,9 @@ public:
 	// UPDATE = and sql::Statement::executeUpdate()
 	// INSERT = sql::Statement::execute()
 
-	WebResult AuthenticateAccount(const std::string& email, const std::string& plainTextPassword);
+	auth::AuthenticateWebResult_AuthenticateResult AuthenticateAccount(const std::string& email, const std::string& plainTextPassword, long& userId, std::string& creationDate);
 
-	WebResult CreateAccount(const std::string& email, const std::string& plainTextPassword);
+	auth::CreateAccountWebResult_CreateAccountResult CreateAccount(const std::string& email, const std::string& plainTextPassword);
 
 	void CloseConnection();
 private:

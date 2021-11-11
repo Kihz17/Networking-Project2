@@ -2,7 +2,7 @@
 
 #include "Packet.h"
 
-#include <Auth.pb.h>
+#include "Auth.pb.h"
 
 namespace netutils
 {

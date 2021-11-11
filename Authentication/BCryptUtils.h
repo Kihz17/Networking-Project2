@@ -2,6 +2,8 @@
 
 #include <bcrypt/BCrypt.hpp>
 
+#include <string>
+
 class BCryptUtils
 {
 public:
