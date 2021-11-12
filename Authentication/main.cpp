@@ -6,15 +6,10 @@
 
 #include "AuthServer.h"
 
+#include "CryptoUtils.h"
+
 int main()
 {  
-    char formattedDate[100];
-    time_t* currTime;
-    tm* time;
-    std::time(currTime);
-    time = std::localtime(currTime);
-
-    std::cout << std::strftime(formattedDate, 59, "%d-%Y", time) << std::endl;
     int result = 0;
     WSADATA wsaData; // Holds winsock data
 

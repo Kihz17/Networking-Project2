@@ -30,14 +30,14 @@
     <ClCompile Include="AuthServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BCryptUtils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PacketManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PacketLoginRequestHandler.cpp">
       <Filter>Source Files\PacketHandlers</Filter>
+    </ClCompile>
+    <ClCompile Include="CryptoUtils.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -45,9 +45,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AuthServer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BCryptUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AuthClient.h">
@@ -61,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="IPacketHandler.h">
       <Filter>Header Files\PacketHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="CryptoUtils.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
