@@ -14,6 +14,11 @@ void PacketRegisterResultHandler::HandleOnClient(Client& client, const SOCKET& s
 		std::cout << "Account created successfully!" << std::endl;
 		client.waitingForServerResponse = false;
 	}
+	else if (registerResult.result == auth::CreateAccountWebResult_CreateAccountResult::CreateAccountWebResult_CreateAccountResult_ACCOUNT_ALREADY_EXISTS)
+	{
+		std::cout << "An account already exists with this email!" << std::endl;
+		client.waitingForServerResponse = false;
+	}
 	else if (registerResult.result == auth::CreateAccountWebResult_CreateAccountResult::CreateAccountWebResult_CreateAccountResult_INVALID_PASSWORD)
 	{
 		std::cout << "Invalid password. Please ensure that your password is atleast 8 characters long!" << std::endl;
