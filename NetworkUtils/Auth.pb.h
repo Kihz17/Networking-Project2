@@ -895,6 +895,7 @@ class AuthenticateWebResult final :
 
   enum : int {
     kCreationDateFieldNumber = 4,
+    kEmailFieldNumber = 5,
     kRequestIdFieldNumber = 1,
     kUserIdFieldNumber = 2,
     kReasonFieldNumber = 3,
@@ -915,6 +916,24 @@ class AuthenticateWebResult final :
   const std::string& _internal_creationdate() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_creationdate(const std::string& value);
   std::string* _internal_mutable_creationdate();
+  public:
+
+  // optional string email = 5;
+  bool has_email() const;
+  private:
+  bool _internal_has_email() const;
+  public:
+  void clear_email();
+  const std::string& email() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_email(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_email();
+  PROTOBUF_MUST_USE_RESULT std::string* release_email();
+  void set_allocated_email(std::string* email);
+  private:
+  const std::string& _internal_email() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_email(const std::string& value);
+  std::string* _internal_mutable_email();
   public:
 
   // optional int64 requestId = 1;
@@ -966,6 +985,7 @@ class AuthenticateWebResult final :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr creationdate_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr email_;
   ::PROTOBUF_NAMESPACE_ID::int64 requestid_;
   ::PROTOBUF_NAMESPACE_ID::int64 userid_;
   int reason_;
@@ -1369,7 +1389,7 @@ inline void AuthenticateWeb::set_allocated_plaintextpassword(std::string* plaint
 
 // optional int64 requestId = 1;
 inline bool AuthenticateWebResult::_internal_has_requestid() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool AuthenticateWebResult::has_requestid() const {
@@ -1377,7 +1397,7 @@ inline bool AuthenticateWebResult::has_requestid() const {
 }
 inline void AuthenticateWebResult::clear_requestid() {
   requestid_ = int64_t{0};
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebResult::_internal_requestid() const {
   return requestid_;
@@ -1387,7 +1407,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebResult::requestid() const {
   return _internal_requestid();
 }
 inline void AuthenticateWebResult::_internal_set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
   requestid_ = value;
 }
 inline void AuthenticateWebResult::set_requestid(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -1397,7 +1417,7 @@ inline void AuthenticateWebResult::set_requestid(::PROTOBUF_NAMESPACE_ID::int64 
 
 // optional int64 userId = 2;
 inline bool AuthenticateWebResult::_internal_has_userid() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool AuthenticateWebResult::has_userid() const {
@@ -1405,7 +1425,7 @@ inline bool AuthenticateWebResult::has_userid() const {
 }
 inline void AuthenticateWebResult::clear_userid() {
   userid_ = int64_t{0};
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebResult::_internal_userid() const {
   return userid_;
@@ -1415,7 +1435,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 AuthenticateWebResult::userid() const {
   return _internal_userid();
 }
 inline void AuthenticateWebResult::_internal_set_userid(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
   userid_ = value;
 }
 inline void AuthenticateWebResult::set_userid(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -1425,7 +1445,7 @@ inline void AuthenticateWebResult::set_userid(::PROTOBUF_NAMESPACE_ID::int64 val
 
 // optional .auth.AuthenticateWebResult.AuthenticateResult reason = 3;
 inline bool AuthenticateWebResult::_internal_has_reason() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool AuthenticateWebResult::has_reason() const {
@@ -1433,7 +1453,7 @@ inline bool AuthenticateWebResult::has_reason() const {
 }
 inline void AuthenticateWebResult::clear_reason() {
   reason_ = 0;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline ::auth::AuthenticateWebResult_AuthenticateResult AuthenticateWebResult::_internal_reason() const {
   return static_cast< ::auth::AuthenticateWebResult_AuthenticateResult >(reason_);
@@ -1444,7 +1464,7 @@ inline ::auth::AuthenticateWebResult_AuthenticateResult AuthenticateWebResult::r
 }
 inline void AuthenticateWebResult::_internal_set_reason(::auth::AuthenticateWebResult_AuthenticateResult value) {
   assert(::auth::AuthenticateWebResult_AuthenticateResult_IsValid(value));
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
   reason_ = value;
 }
 inline void AuthenticateWebResult::set_reason(::auth::AuthenticateWebResult_AuthenticateResult value) {
@@ -1508,6 +1528,64 @@ inline void AuthenticateWebResult::set_allocated_creationdate(std::string* creat
   creationdate_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), creationdate,
       GetArenaForAllocation());
   // @@protoc_insertion_point(field_set_allocated:auth.AuthenticateWebResult.creationDate)
+}
+
+// optional string email = 5;
+inline bool AuthenticateWebResult::_internal_has_email() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool AuthenticateWebResult::has_email() const {
+  return _internal_has_email();
+}
+inline void AuthenticateWebResult::clear_email() {
+  email_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& AuthenticateWebResult::email() const {
+  // @@protoc_insertion_point(field_get:auth.AuthenticateWebResult.email)
+  return _internal_email();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void AuthenticateWebResult::set_email(ArgT0&& arg0, ArgT... args) {
+ _has_bits_[0] |= 0x00000002u;
+ email_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:auth.AuthenticateWebResult.email)
+}
+inline std::string* AuthenticateWebResult::mutable_email() {
+  std::string* _s = _internal_mutable_email();
+  // @@protoc_insertion_point(field_mutable:auth.AuthenticateWebResult.email)
+  return _s;
+}
+inline const std::string& AuthenticateWebResult::_internal_email() const {
+  return email_.Get();
+}
+inline void AuthenticateWebResult::_internal_set_email(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  email_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* AuthenticateWebResult::_internal_mutable_email() {
+  _has_bits_[0] |= 0x00000002u;
+  return email_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* AuthenticateWebResult::release_email() {
+  // @@protoc_insertion_point(field_release:auth.AuthenticateWebResult.email)
+  if (!_internal_has_email()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return email_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void AuthenticateWebResult::set_allocated_email(std::string* email) {
+  if (email != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  email_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), email,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:auth.AuthenticateWebResult.email)
 }
 
 #ifdef __GNUC__

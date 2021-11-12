@@ -39,6 +39,9 @@
     <ClCompile Include="CryptoUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PacketRegisterRequestHandler.cpp">
+      <Filter>Source Files\PacketHandlers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DBUtils.h">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="CryptoUtils.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketRegisterRequestHandler.h">
+      <Filter>Header Files\PacketHandlers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

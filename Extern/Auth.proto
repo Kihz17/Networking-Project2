@@ -1,0 +1,44 @@
+syntax = "proto2";
+
+package auth;
+
+message CreateAccountWeb {
+	optional int64 requestId = 1;
+	optional string email = 2;
+	optional string plainTextPassword = 3;
+}
+
+message CreateAccountWebResult {
+	optional int64 requestId = 1;
+	optional int64 userId = 2;
+	
+	enum CreateAccountResult {
+		SUCCESS = 0;
+		ACCOUNT_ALREADY_EXISTS = 1;
+		INVALID_PASSWORD = 2;
+		INTERNAL_SERVER_ERROR = 3;
+	}
+	
+	optional CreateAccountResult reason = 3;
+}
+
+message AuthenticateWeb {
+	optional int64 requestId = 1;
+	optional string email = 2;
+	optional string plainTextPassword = 3;
+}
+
+message AuthenticateWebResult {
+	optional int64 requestId = 1;
+	optional int64 userId = 2;
+	
+	enum AuthenticateResult {
+		SUCCESS = 0;
+		INVALID_CREDENTIALS = 1;
+		INTERNAL_SERVER_ERROR = 2;
+	}
+	
+	optional AuthenticateResult reason = 3;
+	optional string creationDate = 4;
+	optional string email = 5;
+}

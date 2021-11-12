@@ -70,8 +70,13 @@ auth::AuthenticateWebResult_AuthenticateResult DBUtils::AuthenticateAccount(cons
 	}
 }
 
-auth::CreateAccountWebResult_CreateAccountResult DBUtils::CreateAccount(const std::string& email, const std::string& password)
+auth::CreateAccountWebResult_CreateAccountResult DBUtils::CreateAccount(const std::string& email, const std::string& password, long& userId)
 {
+	if (password.length() < 8) // Password does not meet requirements
+	{
+		return auth::CreateAccountWebResult_CreateAccountResult::CreateAccountWebResult_CreateAccountResult_INVALID_PASSWORD;
+	}
+
 	sql::Statement* stmt = this->m_Connection->createStatement();
 	try
 	{
@@ -102,7 +107,7 @@ auth::CreateAccountWebResult_CreateAccountResult DBUtils::CreateAccount(const st
 		
 		this->m_ResultSet = stmt->executeQuery("SELECT last_insert_id() FROM user;"); // This will get the ID of the user we just inserted
 		this->m_ResultSet->next();
-		uint64_t userId = this->m_ResultSet->getUInt("last_insert_id()");
+		userId = this->m_ResultSet->getUInt("last_insert_id()");
 
 		// Insert data into web_auth table
 		{

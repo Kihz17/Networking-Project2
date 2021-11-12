@@ -2,8 +2,8 @@
 
 namespace netutils
 {
-	PacketLoginResult::PacketLoginResult(long requestId, long userId, auth::AuthenticateWebResult_AuthenticateResult result, const std::string& creationDate)
-		: IPacket(6), requestId(requestId), userId(userId), result(result), creationDate(creationDate)
+	PacketLoginResult::PacketLoginResult(long requestId, long userId, auth::AuthenticateWebResult_AuthenticateResult result, const std::string& creationDate, const std::string& email)
+		: IPacket(6), requestId(requestId), userId(userId), result(result), creationDate(creationDate), email(email)
 	{
 
 	}
@@ -21,6 +21,7 @@ namespace netutils
 		loginResultProto.set_userid(this->userId);
 		loginResultProto.set_reason(this->result);
 		loginResultProto.set_creationdate(this->creationDate);
+		loginResultProto.set_email(this->email);
 		if (!loginResultProto.SerializeToString(&this->data))
 		{
 			std::cout << "Failed to serialize PacketLoginResult protobuf data!" << std::endl;
@@ -50,6 +51,7 @@ namespace netutils
 		this->userId = loginResultProto.userid();
 		this->result = loginResultProto.reason();
 		this->creationDate = loginResultProto.creationdate();
+		this->email = loginResultProto.email();
 	}
 
 	size_t PacketLoginResult::GetSize()

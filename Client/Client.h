@@ -25,6 +25,8 @@ public:
 
 	bool authenticated;
 	bool waitingForServerResponse;
+
+	std::string name;
 private:
 	void ShutDown();
 
@@ -38,7 +40,6 @@ private:
 	bool running;
 
 	std::string currentRoom;
-	std::string name;
 
 	PCSTR serverIp;
 	PCSTR serverPort;

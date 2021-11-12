@@ -24,7 +24,7 @@ public:
 
 	auth::AuthenticateWebResult_AuthenticateResult AuthenticateAccount(const std::string& email, const std::string& plainTextPassword, long& userId, std::string& creationDate);
 
-	auth::CreateAccountWebResult_CreateAccountResult CreateAccount(const std::string& email, const std::string& plainTextPassword);
+	auth::CreateAccountWebResult_CreateAccountResult CreateAccount(const std::string& email, const std::string& plainTextPassword, long& userId);
 
 private:
 	void ShutDown();

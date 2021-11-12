@@ -15,6 +15,7 @@ void PacketLoginResultHandler::HandleOnClient(Client& client, const SOCKET& serv
 		std::cout << "Your account was created on " << loginResult.creationDate << "." << std::endl;
 		client.authenticated = true; // We have authenticated successfully!
 		client.waitingForServerResponse = false;
+		client.name = loginResult.email;
 	}
 	else if (loginResult.result == auth::AuthenticateWebResult_AuthenticateResult::AuthenticateWebResult_AuthenticateResult_INVALID_CREDENTIALS)
 	{

@@ -197,7 +197,7 @@ auth::AuthenticateWebResult_AuthenticateResult AuthServer::AuthenticateAccount(c
     return this->database.AuthenticateAccount(email, plainTextPassword, userId, creationDate);
 }
 
-auth::CreateAccountWebResult_CreateAccountResult AuthServer::CreateAccount(const std::string& email, const std::string& plainTextPassword)
+auth::CreateAccountWebResult_CreateAccountResult AuthServer::CreateAccount(const std::string& email, const std::string& plainTextPassword, long& userId)
 {
-    return this->database.CreateAccount(email, plainTextPassword);
+    return this->database.CreateAccount(email, plainTextPassword, userId);
 }

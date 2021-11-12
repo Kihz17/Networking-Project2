@@ -17,8 +17,8 @@ PacketManager* PacketManager::GetInstance()
 		instance->handlerMap.insert(std::make_pair(1, new PacketReceiveMessageHandler()));
 		instance->handlerMap.insert(std::make_pair(2, new PacketJoinRoomHandler()));
 		instance->handlerMap.insert(std::make_pair(3, new PacketLeaveRoomHandler()));
-		instance->handlerMap.insert(std::make_pair(5, new PacketRegisterResultHandler()));
 		instance->handlerMap.insert(std::make_pair(6, new PacketLoginResultHandler()));
+		instance->handlerMap.insert(std::make_pair(7, new PacketRegisterResultHandler()));
 	}
 
 	return instance;

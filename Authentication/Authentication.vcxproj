@@ -153,6 +153,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PacketLoginRequestHandler.cpp" />
     <ClCompile Include="PacketManager.cpp" />
+    <ClCompile Include="PacketRegisterRequestHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AuthClient.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="IPacketHandler.h" />
     <ClInclude Include="PacketLoginRequestHandler.h" />
     <ClInclude Include="PacketManager.h" />
+    <ClInclude Include="PacketRegisterRequestHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

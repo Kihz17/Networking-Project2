@@ -209,6 +209,8 @@ void Server::Start()
                         if (loginResult.result == auth::AuthenticateWebResult_AuthenticateResult::AuthenticateWebResult_AuthenticateResult_SUCCESS) // It was a success! Authenticate the client
                         {
                             this->unauthenticatedClients.erase(it);
+                            client->id = loginResult.userId; // Update the client's id to their real ID
+                            client->name = loginResult.email; // Update client name
                             this->clients.push_back(client); // Add to authenticated client vector
                         }
 

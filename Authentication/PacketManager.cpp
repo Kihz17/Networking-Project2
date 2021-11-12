@@ -1,5 +1,6 @@
 #include "PacketManager.h"
 #include "PacketLoginRequestHandler.h"
+#include "PacketRegisterRequestHandler.h"
 
 #include <iostream>
 
@@ -11,9 +12,7 @@ PacketManager* PacketManager::GetInstance()
 	{
 		PacketManager::instance = new PacketManager();
 		instance->handlerMap.insert(std::make_pair(4, new PacketLoginRequestHandler()));
-		/*	instance->handlerMap.insert(std::make_pair(5, new PacketRegisterRequestHandler()));
-		instance->handlerMap.insert(std::make_pair(6, new PacketLoginResultHandler()));
-		instance->handlerMap.insert(std::make_pair(7, new PacketRegisterResultHandler()));*/
+		instance->handlerMap.insert(std::make_pair(5, new PacketRegisterRequestHandler()));
 	}
 
 	return instance;

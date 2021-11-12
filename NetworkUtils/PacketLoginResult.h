@@ -9,7 +9,7 @@ namespace netutils
 	class PacketLoginResult : public IPacket
 	{
 	public:
-		PacketLoginResult(long requestId, long userId, auth::AuthenticateWebResult_AuthenticateResult result, const std::string& creationDate);
+		PacketLoginResult(long requestId, long userId, auth::AuthenticateWebResult_AuthenticateResult result, const std::string& creationDate, const std::string& email);
 		PacketLoginResult(Buffer& buffer);
 		virtual ~PacketLoginResult() = default;
 
@@ -21,6 +21,7 @@ namespace netutils
 		long userId;
 		auth::AuthenticateWebResult_AuthenticateResult result;
 		std::string creationDate;
+		std::string email;
 
 	private:
 		int dataLength;
